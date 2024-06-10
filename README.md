@@ -1,6 +1,6 @@
 # MSFR_OpenMC
 
-# Model and project [1] description
+# Model and project description
 This repository contains an OpenMC model of the EVOL reference MSFR as described in [2] and the code for simulating and plotting the main results for the DTU student project in [1]. The project aims to benchmark simulation results from [3] regarding the temperature dependency of the reactivity and the temperature coefficients of reactivity in the range of 300K-1800K. These temperature maps are needed to avoid the computational load of calculating the feedback directly for each step, e.g., for design optimization. 
 
 The results confirm the approximately linear behavior of the total reactivity in the operating temperature range of the EVOL reference MSFR of 900K-1500K, where the total temperature coefficient was found to be approximately constant: alpha = -7.4+/-0.1 pcm/K in [1] (using OpenMC, ENDF-B.7.1), corresponding to a 2.4% difference from alpha = −7.58+/-0.05 pcm/K in [3] (using Serpent, Nuclear library not stated, but possibly ENDF-B.6 or JEFF-3.1 as deduced from [2] and [3]). The highest resolution achieved was #particles=300000 and #active_batches=110 due to limited computing power, and the difference was seen to fall with increasing resolution. Thus, higher resolution might further minimize the difference in alpha.
