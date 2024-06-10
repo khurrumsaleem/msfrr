@@ -27,7 +27,7 @@ Data is saved in files "data/k_eff_XXXXX.txt" with columns:
 {particles}, {batches}, {inactive_cycles}, {material_temp}, {density_temp}, {k_combined}
 OBS: Update "filename" manually to avoid overwriting data.
 
-"shannon_entropy.py" plots the Shannon entropy calculated in "k_eff_loop.py". The entropy is shown to converge around batch 10, so 20 inactive batches were used.
+- "shannon_entropy.py" plots the Shannon entropy calculated in "k_eff_loop.py". The entropy is shown to converge around batch 10, so 20 inactive batches were used.
 
 - "parameter_plot.py" reads "k_eff_loop_XXXXX.txt" files, calculates reactivity and temperature coefficients of reactivity and its propagated uncertainty, and plots versus temperature in kelvin. An error-weighted curve fit is also plotted. It requires latex to be installed, or lines can be outcommented. Relevant plots are saved in "rho_plot_k_eff_loop_XXXXX.txt.png" and "coef_plot_k_eff_loop_XXXXX.txt.png" and if enabled.
 
