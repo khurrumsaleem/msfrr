@@ -14,7 +14,7 @@ The reactivity and the temperature coefficient were split into contributions fro
 [3] "Unmoderated Molten Salt Reactors design optimization for power stability" (2019) by Axel Laureau et al.
 
 # Description of files
-- "materials.py" and "geometry.py" are functions that can be called to build the materials and geometry of the recreated OpenMC model of the EVOL reference MSFR. "materials.py" takes a material temperature (Doppler) and a density temperature as inputs, exports the .xml file, and outputs the materials. "geometry.py" takes these materials as inputs, exports the .xml, and outputs the geometry.
+- "materials.py" and "geometry.py" are functions called by the run file "k_eff_loop.py" to build the materials and geometry of the recreated OpenMC model of the EVOL reference MSFR. "materials.py" takes a material temperature and a density temperature as inputs, exports the .xml file, and outputs the materials. "geometry.py" takes these materials as inputs, exports the .xml, and outputs the geometry.
 
 - "geometry_plot.py" creates cross-sectional plots of the model geometry and saves them as "plot_xy.png," "plot_xz.png," and "plot_yz.png."
 
@@ -23,6 +23,7 @@ The reactivity and the temperature coefficient were split into contributions fro
   - 16 with T going from 300K-1800K in steps of 100K.
   - 16 with density T going from 300K-1800K in steps of 100K, with material T = 700C giving density contribution to multiplication factor.
   - 16 with materials T going from 300K-1800K in steps of 100K, with density T = 700C giving Doppler contribution.
+
 Data is saved in files "data/k_eff_XXXXX.txt" with columns:
 {particles}, {batches}, {inactive_cycles}, {material_temp}, {density_temp}, {k_combined}
 OBS: Update "filename" manually to avoid overwriting data.
