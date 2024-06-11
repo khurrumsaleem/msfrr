@@ -7,7 +7,7 @@ The results confirm the roughly linear behavior of the total reactivity in the o
 
 The reactivity and the temperature coefficient were split into contributions from Doppler broadening and density changes, which is necessary for design optimization since they display different feedback distributions over the core. The Doppler contribution was simulated by changing the material temperature in steps of 100K from 300K-1800K while holding the temperature to calculate the density constant at the benchmark temperature of 700C. Vice versa for the density temperature. Note that the Doppler contribution, therefore, includes all non-density-related temperature effects, such as the hardening of the neutron spectrum. A reference simulation was conducted, changing the temperatures together and showing similar results as the sum of the components. alpha = drho/dT was found through numerical differentiation.
 
-[1] "Impacts of temperature feedback on reactivity parameters in the Molten Salt Fast Reactor" (2024) by Morten Nygaard, master's student at DTU Engineering Physics. (In progress)
+[1] "Impacts of temperature feedback on reactivity parameters in the Molten Salt Fast Reactor" (2024) by Morten Nygaard, master's student at DTU Engineering Physics. (In progress per June 2024)
 
 [2] "Neutronic benchmark of the molten salt fast reactor in the frame of the EVOL and MARS collaborative projects" (2022) by Mariya Brovchenko et al.
 
