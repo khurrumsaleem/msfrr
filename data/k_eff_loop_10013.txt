@@ -48,4 +48,4 @@ particles,batches,inactive_cycles,material_temperature_K,density_temperature,k_c
 100000, 100, 20,  1700.0, 973.15, 0.96198+/-0.00028
 100000, 100, 20,  1800.0, 973.15, 0.96020+/-0.00029
 100000, 100, 20,  973.15, 973.15, 0.98389+/-0.00028
-multipole=true. create_delayed_neutrons=False. Density from table 1. Inventory from table 7 
+multipole=true. create_delayed_neutrons=False. Density from table 1. Inventory from table 7. Cylindrical 20x20x20 entropy mesh: off. 
