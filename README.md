@@ -14,21 +14,22 @@ The reactivity and the temperature coefficient were split into contributions fro
 [3] "Unmoderated Molten Salt Reactors design optimization for power stability" (2019) by Axel Laureau et al.
 
 # Description of Scripts
-- "materials.py" and "geometry.py" are functions called by the run file "k_eff_loop.py" to build the materials and geometry of the recreated OpenMC model of the EVOL reference MSFR. "materials.py" takes a material temperature and a density temperature as inputs, exports the .xml file, and outputs the materials. "geometry.py" takes these materials as inputs, exports the .xml, and outputs the geometry.
-
-- "geometry_plot.py" creates cross-sectional plots of the model geometry and saves them as "plot_xy.png," "plot_xz.png," and "plot_yz.png."
+- "materials.py" and "geometry.py" are functions called by the run file "k_eff_loop.py" to build the materials and geometry of the recreated OpenMC model of the EVOL reference MSFR. "materials.py" takes as inputs a material temperature (for the OpenMC material temperatures of all core materials allowing for simulation of the Doppler reactivity) and a density temperature (to calculate the density of the molten salts in the fuel and fertile blanket regions allowing for simulation of the density reactivity) and exports the .xml file, and outputs the materials. "geometry.py" takes these materials as inputs, exports the .xml, and outputs the geometry.
 
 - "k_eff_loop.py" calls "geometry.py" and "materials.py" to build the model and runs OpenMC a total of 1+3x16=49 times:
   - 1 eigenvalue simulation at the benchmark temperature of 700C.
   - 16 with T going from 300K-1800K in steps of 100K.
-  - 16 with density T going from 300K-1800K in steps of 100K, with material T = 700C giving density contribution to multiplication factor.
-  - 16 with materials T going from 300K-1800K in steps of 100K, with density T = 700C giving Doppler contribution.
+  - 16 with the density temperature going from 300K-1800K in steps of 100K, with material temperature fixed at 700C, giving the density reactivity.
+  - 16 with the material temperature going from 300K-1800K in steps of 100K, with density temperature fixed at 700C, giving the Doppler reactivity.
 
 Data is saved in files "data/k_eff_XXXXX.txt" with columns:
 {particles}, {batches}, {inactive_cycles}, {material_temp}, {density_temp}, {k_combined}
 OBS: Update "filename" manually to avoid overwriting data.
 
-- "shannon_entropy.py" plots the Shannon entropy calculated in "k_eff_loop.py". The entropy converges around batch 10, so 20 inactive batches were used.
-
 - "parameter_plot.py" reads "k_eff_loop_XXXXX.txt" files, calculates reactivity and temperature coefficients of reactivity and its propagated uncertainty, and plots versus temperature in kelvin. An error-weighted curve fit is also plotted. It requires latex to be installed, or lines can be outcommented. Plots are saved in "k_eff_loop_XXXXX_rho_plot.png" and "k_eff_loop_XXXXX_coef_plot.png" if enabled.
 
+- "shannon_entropy.py" plots the Shannon entropy calculated in "k_eff_loop.py". The entropy converges before batch 10, so 20 inactive batches were used.
+
+- "geometry_plot.py" creates cross-sectional plots of the model geometry and saves them as "plot_xy.png," "plot_xz.png," and "plot_yz.png."
+
+Contacts: s182487@dtu.dk
