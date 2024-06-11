@@ -9,9 +9,9 @@ The reactivity and the temperature coefficient were split into contributions fro
 
 [1] "Impacts of temperature feedback on reactivity parameters in the Molten Salt Fast Reactor" (2024) by Morten Nygaard, master's student at DTU Engineering Physics. (In progress per June 2024)
 
-[2] "Neutronic benchmark of the molten salt fast reactor in the frame of the EVOL and MARS collaborative projects" (2022) by Mariya Brovchenko et al.
+[2] "Neutronic benchmark of the molten salt fast reactor in the frame of the EVOL and MARS collaborative projects" (2019) by Mariya Brovchenko et al.
 
-[3] "Unmoderated Molten Salt Reactors design optimization for power stability" (2019) by Axel Laureau et al.
+[3] "Unmoderated Molten Salt Reactors design optimization for power stability" (2022) by Axel Laureau et al.
 
 # Description of Scripts
 - "materials.py" and "geometry.py" are functions called by the run file "k_eff_loop.py" to build the materials and geometry of the recreated OpenMC model of the EVOL reference MSFR. "materials.py" takes as inputs a material temperature (for the OpenMC material temperatures of all core materials allowing for simulation of the Doppler reactivity) and a density temperature (to calculate the density of the molten salts in the fuel and fertile blanket regions allowing for simulation of the density reactivity) and exports the .xml file, and outputs the materials. "geometry.py" takes these materials as inputs, exports the .xml, and outputs the geometry.
