@@ -13,7 +13,7 @@ The reactivity and the temperature coefficient were split into contributions fro
 
 [3] "Unmoderated Molten Salt Reactors design optimization for power stability" (2019) by Axel Laureau et al.
 
-# Description of files
+# Description of Scripts
 - "materials.py" and "geometry.py" are functions called by the run file "k_eff_loop.py" to build the materials and geometry of the recreated OpenMC model of the EVOL reference MSFR. "materials.py" takes a material temperature and a density temperature as inputs, exports the .xml file, and outputs the materials. "geometry.py" takes these materials as inputs, exports the .xml, and outputs the geometry.
 
 - "geometry_plot.py" creates cross-sectional plots of the model geometry and saves them as "plot_xy.png," "plot_xz.png," and "plot_yz.png."
