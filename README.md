@@ -5,7 +5,7 @@ This repository contains an OpenMC model of the EVOL reference MSFR as described
 
 The results confirm the roughly linear behavior of the total reactivity in the operating temperature range of the EVOL reference MSFR of 900K-1500K, where the total temperature coefficient was found to be approximately constant: alpha = -7.4+/-0.1 pcm/K in [1] (using OpenMC, ENDF-B.7.1), corresponding to a 2.4% difference from alpha = −7.58+/-0.05 pcm/K in [3] (using Serpent, Nuclear library not stated, possibly ENDF-B.6 or JEFF-3.1 as deduced from [2] and [3]). The highest resolution achieved was #particles=300000 and #active_batches=110 due to limited computing power, and the difference fell with increasing resolution. Thus, higher resolution might further minimize the difference in alpha.
 
-The reactivity and the temperature coefficient were split into contributions from Doppler broadening and density changes, which is necessary for design optimization since they display different feedback distributions over the core. The Doppler contribution was simulated by changing the material temperature in steps of 100K from 300K-1800K while holding the temperature to calculate the density constant at the benchmark temperature of 700C. Vice versa for the density temperature. Note that the Doppler contribution, therefore, includes all non-density-related temperature effects, such as the hardening of the neutron spectrum. A reference simulation was conducted, changing the temperatures together and showing similar results as the sum of the components. alpha = drho/dT was found through numerical differentiation.
+The reactivity and the temperature coefficient were split into contributions from Doppler broadening and density changes, which is necessary for design optimization since they display different feedback distributions over the core. The Doppler contribution was simulated by changing the material temperature in steps of 100K from 300K-1800K while holding the temperature to calculate the density constant at the benchmark temperature of 700C (Edit: To reproduce results from [3], this value should be 900K. This will be implemented soon). Vice versa for the density temperature. Note that the Doppler contribution, therefore, includes all non-density-related temperature effects, such as the hardening of the neutron spectrum. A reference simulation was conducted, changing the temperatures together and showing similar results as the sum of the components. alpha = drho/dT was found through numerical differentiation.
 
 [1] "Impacts of temperature feedback on reactivity parameters in the Molten Salt Fast Reactor" (2024) by Morten Nygaard, master's student at DTU Engineering Physics. (In progress per June 2024)
 
@@ -19,8 +19,9 @@ The reactivity and the temperature coefficient were split into contributions fro
 - "k_eff_loop.py" calls "geometry.py" and "materials.py" to build the model and runs OpenMC a total of 1+3x16=49 times:
   - 1 eigenvalue simulation at the benchmark temperature of 700C.
   - 16 with T going from 300K-1800K in steps of 100K.
-  - 16 with the density temperature going from 300K-1800K in steps of 100K, with material temperature fixed at 700C, giving the density reactivity.
-  - 16 with the material temperature going from 300K-1800K in steps of 100K, with density temperature fixed at 700C, giving the Doppler reactivity.
+  - 16 with the density temperature going from 300K-1800K in steps of 100K, with material temperature fixed at 700C*, giving the density reactivity.
+  - 16 with the material temperature going from 300K-1800K in steps of 100K, with density temperature fixed at 700C*, giving the Doppler reactivity.
+*Edit: To reproduce results from [3], this value should be 900K. This will be implemented soon.
 
 Data is saved in files "data/k_eff_XXXXX.txt" with columns:
 {particles}, {batches}, {inactive_cycles}, {material_temp}, {density_temp}, {k_combined}
