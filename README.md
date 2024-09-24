@@ -32,4 +32,4 @@ OBS: Update "filename" manually to avoid overwriting data.
 
 - "geometry_plot.py" creates cross-sectional plots of the model geometry and saves them as "plot_xy.png," "plot_xz.png," and "plot_yz.png."
 
-Contacts: s182487@dtu.dk
+Contact information: s182487@dtu.dk
